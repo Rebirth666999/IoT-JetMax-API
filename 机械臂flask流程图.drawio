@@ -1,0 +1,66 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.2 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="25.0.2">
+  <diagram name="第 1 页" id="z0bqzikjAbMLYMX2KEmr">
+    <mxGraphModel dx="753" dy="530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-1" value="底层硬件执行" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="90" y="600" width="332" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-2" value="独立微服务后端 (IoT-JetMax-API)" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="90" y="240" width="332" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-3" value="业务调用方" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="90" y="60" width="332" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-4" value="前端可视化大屏 / Java 业务系统" style="whiteSpace=wrap;strokeWidth=2;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="145" y="94" width="217" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-5" value="通信层：jetmax_control.py&#xa;(基于 Flask 构建 RESTful 路由)" style="whiteSpace=wrap;strokeWidth=2;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="145" y="280" width="217" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-6" value="控制层：JetMax.py&#xa;(PArmSuck 类与状态机维护)" style="whiteSpace=wrap;strokeWidth=2;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="145" y="430" width="217" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-7" value="JetMax 机械臂底层驱动&#xa;(hiwonder 库 / 物理舵机与吸盘)" style="whiteSpace=wrap;strokeWidth=2;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="145" y="640" width="217" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-8" value="1. 解析 JSON 提取参数&#xa;2. 实例调用 test.MoveHead(x,y,z)" style="curved=1;startArrow=none;endArrow=block;strokeWidth=3;exitX=0;exitY=1;entryX=0;entryY=0;rounded=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;fontStyle=1;textShadow=1;" parent="1" source="dlrADrJcsfN7lmAsJ1Qb-5" target="dlrADrJcsfN7lmAsJ1Qb-6" edge="1">
+          <mxGeometry x="-0.0667" relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-9" value="3. 返回执行结果 (is_ok=True)&#xa;及设备状态 (STATUS_IDLE)" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0;entryX=1;entryY=1;rounded=0;entryDx=0;entryDy=0;exitDx=0;exitDy=0;fontStyle=1;textShadow=1;" parent="1" source="dlrADrJcsfN7lmAsJ1Qb-6" target="dlrADrJcsfN7lmAsJ1Qb-5" edge="1">
+          <mxGeometry x="0.0667" relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-10" value="HTTP POST /MoveHead&#xa;JSON: {&#39;pos&#39;: [x, y, z]}" style="curved=1;startArrow=none;endArrow=block;strokeWidth=3;exitX=0;exitY=1;entryX=0;entryY=0;rounded=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;shadow=0;textShadow=1;fontStyle=1" parent="1" source="dlrADrJcsfN7lmAsJ1Qb-4" target="dlrADrJcsfN7lmAsJ1Qb-5" edge="1">
+          <mxGeometry x="-0.3333" relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-11" value="HTTP 200 OK&#xa;JSON: {&#39;is_ok&#39;: true}" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0;entryX=1;entryY=1;rounded=0;entryDx=0;entryDy=0;exitDx=0;exitDy=0;fontStyle=1;textShadow=1;" parent="1" source="dlrADrJcsfN7lmAsJ1Qb-5" target="dlrADrJcsfN7lmAsJ1Qb-4" edge="1">
+          <mxGeometry x="0.3333" y="-2" relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-12" value="底层物理硬件指令&#xa;jetmax.set_position()" style="curved=1;startArrow=none;endArrow=block;strokeWidth=3;exitX=0;exitY=1;entryX=0;entryY=0;rounded=0;exitDx=0;exitDy=0;entryDx=0;entryDy=0;fontStyle=1;textShadow=1;" parent="1" source="dlrADrJcsfN7lmAsJ1Qb-6" target="dlrADrJcsfN7lmAsJ1Qb-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dlrADrJcsfN7lmAsJ1Qb-13" value="舵机及吸盘动作执行完毕" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0;entryX=1;entryY=1;rounded=0;entryDx=0;entryDy=0;exitDx=0;exitDy=0;fontStyle=1;textShadow=1;" parent="1" source="dlrADrJcsfN7lmAsJ1Qb-7" target="dlrADrJcsfN7lmAsJ1Qb-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
